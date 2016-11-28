@@ -32,6 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+gem 'milia'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
@@ -42,3 +45,6 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
