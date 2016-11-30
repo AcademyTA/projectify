@@ -1,5 +1,3 @@
-// function to get params from URL
-
 function GetURLParameter(sParam) {
   var sPageURL = window.location.search.substring(1);
   var sURLVariables = sPageURL.split('&');
@@ -14,10 +12,8 @@ function GetURLParameter(sParam) {
 };
 
 $(document).ready(function () {
-
   var show_error, stripeResponseHandler, submitHandler;
 
-// function to handle the submit of the form and intercept the default event
   submitHandler = function (event) {
     var $form = $(event.target);
     $form.find("input[type=submit]").prop("disabled", true);
@@ -29,10 +25,8 @@ $(document).ready(function () {
     return false;
   };
 
-// Initiate submit handler listener for any form with class cc_form
   $(".cc_form").on('submit', submitHandler);
 
-// handle event of plan drop down changing
   var handlePlanChange = function(plan_type, form) {
     var $form = $(form);
 
@@ -52,15 +46,12 @@ $(document).ready(function () {
     }
   }
 
-// Set up plan change event listener #tenant_plan id in the forms for class cc_form
   $("#tenant_plan").on('change', function(event) {
     handlePlanChange($('#tenant_plan :selected').val(), ".cc_form");
   });
 
-// call plan change handler so that the plan is set correctly in the drop down when the page loads
   handlePlanChange(GetURLParameter('plan'), ".cc_form");
 
-// function to handle the token received from Stripe and remove credit card fields
   stripeResponseHandler = function (status, response) {
     var token, $form;
 
@@ -83,7 +74,6 @@ $(document).ready(function () {
     return false;
   };
 
-  // function to show errors when Stripe functionality returns an error
   show_error = function (message) {
     if($("#flash-messages").size() < 1) {
       $('div.container .col-lg-12:first').prepend("<div id='flash-messages'></div>")
