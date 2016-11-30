@@ -20,6 +20,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'milia'
 
+gem 'aws-sdk'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
