@@ -21,6 +21,7 @@ gem 'devise'
 gem 'milia'
 
 gem 'aws-sdk'
+gem 'stripe'
 
 group :development, :test do
   gem 'pry-rails'
