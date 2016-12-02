@@ -1,3 +1,42 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.jumbotron {
+  background-image: asset-url('office.jpg');
+  background-size: cover;
+  color: #fff;
+  padding-top: 95px;
+  padding-bottom: 95px;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-shadow: 4px 4px 2px rgba(50, 50, 50, 1);
+  height: 400px;
+
+  h2 {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.features {
+  ul {
+    margin-left: 0;
+    padding-left: 15px;
+  }
+}
+
+.extra {
+  color: #5cb85c;
+}
+
+.plan {
+  border: 1px solid #c9c9c9;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.price {
+  font-weight: 700;
+  size: 120%;
+}
+
+.sign-up {
+  margin-top: 5px;
+}

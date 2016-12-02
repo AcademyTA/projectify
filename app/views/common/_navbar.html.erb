@@ -7,50 +7,47 @@
     </button>
 
     <span>
-      <%= link_to ("<i class='fa fa-university'></i> " + 'Projectify').html_safe,
+      <%= link_to ("<i class='fa fa-university'></i> " + 'PROJECTIFY').html_safe,
           root_path,
           class: "navbar-brand" %>
     <span>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Link1", "/path1"  %></li>
-        <li><%= link_to "Link2", "/path2"  %></li>
-        <li><%= link_to "Link3", "/path3"  %></li>
+        <% if current_user %>
+          <li><%= link_to "Projects", root_path %></li>
+        <% end %>
 
         <% if current_user && current_user.is_admin? %>
           <li>
             <%= link_to "<i class='fa fa-users'></i> Add Members".html_safe,
-                new_member_path,
-                class: 'navbar-link btn btn-primary' %>
+                new_member_path %>
           </li>
           <li>
             <%= link_to "<i class='fa fa-briefcase'></i> Change Plan".html_safe,
-                edit_plan_path,
-                class: 'btn btn-primary navbar-link' %>
+                edit_plan_path%>
           </li>
         <% end %>
       </ul>
-      <ul class="nav navbar-right col-md-4">
+      <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li class="col-md-8 user-name">
+          <li>
             <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe,
                 edit_user_registration_path,
                 title: 'Edit Profile' %>
           </li>
-          <li class="col-md-1">&nbsp;</li>
-          <li class="col-md-3 logout">
+          <li class="logout">
             <%= link_to('Logout',
                 destroy_user_session_path,
-                class: 'btn btn-xs btn-danger',
                 title: 'Logout',
+                class: 'text-center',
                 method: :delete) %>
           </li>
         <% else %>
-          <li class="col-md-4 pull-right">
+          <li class="pull-right">
             <%= link_to('Sign In',
                 new_user_session_path,
-                class: 'btn btn-primary',
-                title: 'Sign In') %>
+                title: 'Sign In',
+                class: 'text-center') %>
           </li>
         <% end %>
       </ul>
