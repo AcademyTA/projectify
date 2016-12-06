@@ -3,8 +3,10 @@
   <%= render 'projects/list' %>
 <% else %>
   <div class="jumbotron">
-    <h2>Projectify: The PM Tool</h2>
-    <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-info sign-up' %>
+    <div class="col-md-5 jumbotron-heading">
+      <h2>Projectify: The PM Tool</h2>
+      <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary sign-up' %>
+    </div>
   </div>
   <div class="row">
     <div class="plans clearfix">
